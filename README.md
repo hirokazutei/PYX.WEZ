@@ -2,6 +2,7 @@
 
 Pixel Visualization of Weathers!
 
+
 ## What the hell is it?
 
 Well, I have it uploaded it here: hirokazutei.com so check that out. It's more efficient than explaining it with text.
@@ -11,14 +12,17 @@ I programmed it using the P5.JS library.
 * [P5.JS Website](https://p5js.org/)
 * [P5.JS GitHub](https://github.com/processing/p5.js?files=1)
 
+
 ## Contribution
 
 I'll write something later. Promis.
+
 
 ## The guy who made it.
 
 Hey, that's me. Hi. How are you doing?
 I'm currently slogging though university life somewhere in Japan, doing a master's degree that will lead me no where.
+
 
 ## Special Thanks.
 
