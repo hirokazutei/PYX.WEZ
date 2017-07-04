@@ -15,7 +15,7 @@ I programmed it using the P5.JS library.
 
 ## Contribution
 
-I'll write something later. Promis.
+[Contrubution documentation can be found Here.](https://github.com/kazuyalegrey/PYX.WEZ/blob/master/CONTRIBUTION.md)
 
 
 ## The guy who made it.
