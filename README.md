@@ -17,12 +17,14 @@ I programmed it using the P5.JS library.
 
 I'll write something later. Promis.
 
+
 ## The guy who made it.
 
 Hey, that's me. Hi. How are you doing?
 I'm currently slogging though university life somewhere in Japan, doing a master's degree that will lead me no where.
+If you find any bugs, or have any suggestion for the program, shoot me a message.
 
 
 ## Special Thanks.
 
-This program isn't a big achievement like winning an Oscar or something, but I still feel strongly inclined to thank my amazing friends for generously providing me with guidance and just being cool individuals.
+This program isn't a big achievement like winning an Oscar or something, but I still feel strongly inclined to thank my amazing friends for generously providing me with guidance and for just being cool individuals.
