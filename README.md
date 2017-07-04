@@ -5,7 +5,7 @@ Pixel Visualization of Weathers!
 
 ## What the hell is it?
 
-Well, I have it uploaded it [HERE](hirokazutei.com) (I apologize for the noobie website set-up) so check that out. It's more efficient than explaining it with text.
+Well, I have it uploaded it [HERE](http://hirokazutei.com/pyxwez) (I apologize for the noobie website set-up) so check that out. It's more efficient than explaining it with text.
 It is a weather visualization JavaScript program using mostly block pixel art style. Allows you to click on places on a world map and displays the weather in the random vicinity of where you clicked (except for pre-programmed cities).
 
 I programmed it using the P5.JS library. 
