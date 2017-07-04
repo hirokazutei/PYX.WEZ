@@ -76,6 +76,7 @@ function BackClicked() {
       custom = false;
       customed = false;
       chosen = false;
+      infoPage = false;
       timeOfDayScroll = 0;
     }
   }
