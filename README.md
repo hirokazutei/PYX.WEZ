@@ -23,3 +23,8 @@ Contrubution documentation can be found [HERE](https://github.com/kazuyalegrey/P
 Currently switching my career goal from architecture to the realm of computer science. I gave myself a fun project to work on to practice JavaScript, work with weather & geolocation APIs, and incorporate a bit of my design skills.
 
 If you find any bugs, or have any suggestion for the program, shoot me a message.
+
+## Current Upgrades:
+
+I am planning to make the size of the world map scale with the screen of the device viewing the website.
+In addition, I am planning to adjust the intensities of the weather effect depending on the screen size as well.
