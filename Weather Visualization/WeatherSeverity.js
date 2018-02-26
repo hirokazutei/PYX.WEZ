@@ -1,3 +1,4 @@
+var  weather_scale = 8;
 function CheckWeather() {
   if (weatherSeverity && customed == false) {
     print(weatherSeverity);
@@ -7,56 +8,56 @@ function CheckWeather() {
         clouds = false;
         break;
       case "few clouds":
-        cloudsize = 40;
+        cloudsize = 4* weather_scale;
         break;
       case "scattered clouds":
-        cloudsize = 20;
+        cloudsize = 2* weather_scale;
         break;
       case "broken clouds":
-        cloudsize = 20;
+        cloudsize = 2* weather_scale;
         break;
       case "overcast clouds":
-        cloudsize = 50;
+        cloudsize = 5 * weather_scale;
         break;
       case "light intensity drizzle":
-        cloudsize = 50;
-        rainamount = 100;
+        cloudsize = 5 * weather_scale;
+        rainamount = 10 * weather_scale;
         raining = true;
         drizzling = true;
         break;
       case "drizzle":
-        cloudsize = 60;
-        rainamount = 150;
+        cloudsize = 6 * weather_scale;
+        rainamount = 15 * weather_scale;
         raining = true;
         drizzling = true;
         break;
       case "heavy intensity drizzle":
-        cloudsize = 60;
-        rainamount = 200;
+        cloudsize = 6 * weather_scale;
+        rainamount = 20 * weather_scale;
         raining = true;
         drizzling = true;
         break;
       case "light intensity drizzle rain":
-        cloudsize = 60;
-        rainamount = 250;
+        cloudsize = 6 * weather_scale;
+        rainamount = 25 * weather_scale;
         raining = true;
         drizzling = true;
         break;
       case "drizzle rain":
-        cloudsize = 60;
-        rainamount = 300;
+        cloudsize = 6 * weather_scale;
+        rainamount = 30 * weather_scale;
         raining = true;
         drizzling = true;
         break;
       case "heavy intensity drizzle rain":
-        cloudsize = 60;
-        rainamount = 350;
+        cloudsize = 6 * weather_scale;
+        rainamount = 35* weather_scale;
         raining = true;
         drizzling = true;
         break;
       case "shower rain and drizzle":
-        cloudsize = 60;
-        rainamount = 400;
+        cloudsize = 6* weather_scale;
+        rainamount = 40* weather_scale;
         raining = true;
         drizzling = true;
         break;

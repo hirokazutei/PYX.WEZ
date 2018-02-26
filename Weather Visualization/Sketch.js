@@ -27,10 +27,13 @@ var custom;
 var customed = false;
 var infoPage = false;
 
+var window_scale;
+
 
 function setup() {
   swidth = window.innerWidth;
   sheight = window.innerHeight;
+  window_scale = int(window.innerWidth/140) + 1;
   createCanvas(swidth, sheight);
   colorMode(RGB, 100, 100, 100, 100);
   noSmooth();
@@ -44,6 +47,8 @@ function draw() {
   //UPDATE WINDOW SIZE
   swidth = window.innerWidth;
   sheight = window.innerHeight;
+  window_scale = int(window.innerWidth/140) + 1;
+
   createCanvas(swidth, sheight);
 
   //BASIC SET-UP
