@@ -26,5 +26,6 @@ If you find any bugs, or have any suggestion for the program, shoot me a message
 
 ## Current Upgrades:
 
-I am planning to make the size of the world map scale with the screen of the device viewing the website.
-In addition, I am planning to adjust the intensities of the weather effect depending on the screen size as well.
+The world map as well as the info page (once uploaded onto the hosting server) will scale with the window screen to an extent.
+Working on getting the weather intensities changed.
+Note to self that if the screen is incredibly flat height wise, the world map should be scaled down too.
