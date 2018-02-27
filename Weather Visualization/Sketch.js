@@ -28,12 +28,14 @@ var customed = false;
 var infoPage = false;
 
 var window_scale;
+var weather_scale;
 
 
 function setup() {
   swidth = window.innerWidth;
   sheight = window.innerHeight;
-  window_scale = int(window.innerWidth/140) + 1;
+  window_scale = int(window.innerWidth / 140) + 1;
+  weather_scale = int(window.innerWidth / 100);
   createCanvas(swidth, sheight);
   colorMode(RGB, 100, 100, 100, 100);
   noSmooth();
@@ -47,7 +49,15 @@ function draw() {
   //UPDATE WINDOW SIZE
   swidth = window.innerWidth;
   sheight = window.innerHeight;
-  window_scale = int(window.innerWidth/140) + 1;
+  window_scale = int(window.innerWidth / 140) + 1; // Make sure that it takes in account for height too.
+  weather_scale = int(window.innerWidth / 100);
+  if (weather_scale < 5) {
+    weather_scale = 5;
+  }
+  if (window_scale < 2) {
+    window_scale = 2;
+  }
+
 
   createCanvas(swidth, sheight);
 
@@ -153,10 +163,10 @@ function mousePressed() {
     Choosing();
   } else if (chosen === false) {
     Choice();
-  }else if (infoPage === true){
-  BackClicked();
-  ClickInfo();
-  
+  } else if (infoPage === true) {
+    BackClicked();
+    ClickInfo();
+
   } else if (displayingweather === false) {
     WorldClicked();
   } else {

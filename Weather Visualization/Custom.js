@@ -71,15 +71,15 @@ function Choice() {
     custom = false;
     chosen = true;
   } else if (positionX < width / 2 + 350 && positionX > width / 2 - 10 && positionY > height / 2 + 150 && positionY < height / 2 + 220) {
-    snowamount = 400;
-    rainamount = 400;
-    apiclouds = 60;
-    freezeamount = 200;
+    snowamount = 40 * weather_scale;
+    rainamount = 40 * weather_scale;
+    apiclouds = 6 * weather_scale;
+    freezeamount = 20 * weather_scale;
     timeofday = "sunrise";
     time = random(5, 8)
     custom = true;
     chosen = true;
-    cloudsize = 50;
+    cloudsize = 5 * weather_scale;
     wind = 10;
     sunset = 18;
     sunrise = 6;

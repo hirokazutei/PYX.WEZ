@@ -6,6 +6,6 @@ function Circle(x, y) {
   this.x = x;
   this.y = y;
   for (var i = 0; i < circlex.length; i++) {
-    rect(circlex[i] * window_scale + this.x - (window_scale * 6), circley[i] * window_scale + this.y - (window_scale * 6), window_scale, window_scale);
+    rect(circlex[i] * 10 + this.x - (window_scale * 6), circley[i] * 10 + this.y - (window_scale * 6), window_scale, window_scale);
   }
 }
