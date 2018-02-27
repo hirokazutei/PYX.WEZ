@@ -3,7 +3,7 @@
 Pixel Visualization of Weathers!
 
 
-## What the hell is it?
+## What is it?
 
 Well, I have it uploaded it [HERE](http://hirokazutei.com/pyxwez) (I apologize for the noobie website set-up) so check that out. It's more efficient than explaining it with text.
 It is a weather visualization JavaScript program using mostly block pixel art style. Allows you to click on places on a world map and displays the weather in the random vicinity of where you clicked (except for pre-programmed cities).
@@ -18,13 +18,13 @@ I programmed it using the P5.JS library.
 Contrubution documentation can be found [HERE](https://github.com/kazuyalegrey/PYX.WEZ/blob/master/CONTRIBUTION.md).
 
 
-## The guy who made it.
+## Why it was made?
 
-Hey, that's me. Hi. How are you doing?
-I'm currently slogging though university life somewhere in Japan, doing a master's degree that will lead me no where.
+Currently switching my career goal from architecture to the realm of computer science. I gave myself a fun project to work on to practice JavaScript, work with weather & geolocation APIs, and incorporate a bit of my design skills.
+
 If you find any bugs, or have any suggestion for the program, shoot me a message.
 
+## Current Upgrades:
 
-## Special Thanks.
-
-This program isn't a big achievement like winning an Oscar or something, but I still feel strongly inclined to thank my amazing friends for generously providing me with guidance and for just being cool individuals.
+I am planning to make the size of the world map scale with the screen of the device viewing the website.
+In addition, I am planning to adjust the intensities of the weather effect depending on the screen size as well.
