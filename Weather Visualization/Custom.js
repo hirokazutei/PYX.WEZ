@@ -71,15 +71,15 @@ function Choice() {
     custom = false;
     chosen = true;
   } else if (positionX < width / 2 + 350 && positionX > width / 2 - 10 && positionY > height / 2 + 150 && positionY < height / 2 + 220) {
-    snowamount = 400;
-    rainamount = 400;
-    apiclouds = 60;
-    freezeamount = 200;
+    snowamount = 40 * weather_scale;
+    rainamount = 40 * weather_scale;
+    apiclouds = 6 * weather_scale;
+    freezeamount = 20 * weather_scale;
     timeofday = "sunrise";
     time = random(5, 8)
     custom = true;
     chosen = true;
-    cloudsize = 50;
+    cloudsize = 5 * weather_scale;
     wind = 10;
     sunset = 18;
     sunrise = 6;
@@ -100,7 +100,7 @@ function Customize() {
   for (var i = 1; i < 6; i++) {
     rect(400, 70 + 100 * i, 30, 30);
   }
-  rect(600, 640, 490, 90);
+  rect(int((swidth/2)/10) * 10 - 200, 640, 510, 90);
 
   fill(100)
   for (var i = 0; i < nextButton[0].length; i++) {
@@ -141,7 +141,7 @@ function Customize() {
   }
     */
   for (var i = 0; i < listOfWords[10].length; i++) {
-    PixelLetter(610 + (i * 60), 650, listOfWords[10].charAt(i))
+    PixelLetter(int(swidth/2/10) * 10 - 180 + (i * 60), 650, listOfWords[10].charAt(i))
   }
 
 
@@ -206,7 +206,7 @@ function Choosing() {
     }
   }
 
-  if (positionX > 600 && positionX < 1040 && positionY > 640 && positionY < 730) {
+  if (positionX > int((swidth/2)/10) * 10 - 200 && positionX < int((swidth/2)/10) * 10 + 310 && positionY > 640 && positionY < 730) {
     custom = false;
     weatherexist = true;
     timeexist = true;

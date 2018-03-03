@@ -27,10 +27,19 @@ var custom;
 var customed = false;
 var infoPage = false;
 
+var window_scale;
+var weather_scale;
+
 
 function setup() {
   swidth = window.innerWidth;
   sheight = window.innerHeight;
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    window_scale = int(window.innerWidth / 175) + 1;
+  } else {
+    window_scale = int(window.innerWidth / 150) + 1; // Make sure that it takes in account for height too.
+  }
+  weather_scale = int(window.innerWidth / 100);
   createCanvas(swidth, sheight);
   colorMode(RGB, 100, 100, 100, 100);
   noSmooth();
@@ -44,6 +53,19 @@ function draw() {
   //UPDATE WINDOW SIZE
   swidth = window.innerWidth;
   sheight = window.innerHeight;
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    window_scale = int(window.innerWidth / 175) + 1;
+  } else {
+    window_scale = int(window.innerWidth / 150) + 1; // Make sure that it takes in account for height too.
+  }  weather_scale = int(window.innerWidth / 100);
+  if (weather_scale < 5) {
+    weather_scale = 5;
+  }
+  if (window_scale < 2) {
+    window_scale = 2;
+  }
+
+
   createCanvas(swidth, sheight);
 
   //BASIC SET-UP
@@ -145,16 +167,15 @@ function draw() {
 function mousePressed() {
   //THE WORLD SELECTION MENU
   if (custom) {
-    Choosing();
+    setTimeout(Choosing(), 500);
   } else if (chosen === false) {
-    Choice();
-  }else if (infoPage === true){
-  BackClicked();
-  ClickInfo();
-  
+    setTimeout(Choice(), 500);
+  } else if (infoPage === true) {
+    setTimeout(BackClicked(), 500);
+    ClickInfo();
   } else if (displayingweather === false) {
-    WorldClicked();
+    setTimeout(WorldClicked(), 500);
   } else {
-    BackClicked();
+    setTimeout(BackClicked(), 500);
   }
 }

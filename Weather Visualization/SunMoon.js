@@ -87,8 +87,8 @@ function SunMoon() {
       CloudColor = [90, 90, 100, 80];
     }
   }
-  strokeWeight(1);
-  stroke(SunMoonColor[0], SunMoonColor[1], SunMoonColor[2], SunMoonColor[3]);
+  noStroke();
+  //stroke(SunMoonColor[0], SunMoonColor[1], SunMoonColor[2], SunMoonColor[3]);
   fill(SunMoonColor[0], SunMoonColor[1], SunMoonColor[2], SunMoonColor[3]);
   Circle(sunpositionx, sunpositiony);
 }

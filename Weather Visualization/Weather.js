@@ -230,6 +230,7 @@ function Lightning(a) {
       if (random(100) < 1) {
         this.a = 200
         fill(100, 100, 100, this.a);
+        noStroke();
         for (var i = 0; i < this.lightningx.length; i++) {
           rect(this.lightningx[i], this.lightningy[i], 10, 10);
         }
@@ -237,7 +238,8 @@ function Lightning(a) {
       }
     } else {
       this.a = this.a - random(0, 20)
-      fill(100, 100, 100, this.a);;
+      fill(100, 100, 100, this.a);
+      noStroke();
       for (var i = 0; i < this.lightningx.length; i++) {
         rect(this.lightningx[i], this.lightningy[i], 10, 10);
       }
@@ -317,7 +319,7 @@ function Freeze() {
 
 var haze = [];
 var hazesize = 1000;
-var hazeColor = [100,100,100,20];
+var hazeColor = [100, 100, 100, 20];
 var hazeamount = 5;
 
 function Haze(x, y, v, a) {
