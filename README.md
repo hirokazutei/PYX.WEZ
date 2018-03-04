@@ -23,9 +23,3 @@ Contrubution documentation can be found [HERE](https://github.com/kazuyalegrey/P
 Currently switching my career goal from architecture to the realm of computer science. I gave myself a fun project to work on to practice JavaScript, work with weather & geolocation APIs, and incorporate a bit of my design skills.
 
 If you find any bugs, or have any suggestion for the program, shoot me a message.
-
-## Current Upgrades:
-
-The world map as well as the info page (once uploaded onto the hosting server) will scale with the window screen to an extent.
-Working on getting the weather intensities changed.
-Note to self that if the screen is incredibly flat height wise, the world map should be scaled down too.
