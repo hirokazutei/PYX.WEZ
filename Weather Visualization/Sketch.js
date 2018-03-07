@@ -29,6 +29,7 @@ var infoPage = false;
 
 var window_scale;
 var weather_scale;
+var mobile = false;
 
 
 function setup() {
@@ -36,6 +37,7 @@ function setup() {
   sheight = window.innerHeight;
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     window_scale = int(window.innerWidth / 175) + 1;
+    mobile = true;
   } else {
     window_scale = int(window.innerWidth / 150) + 1; // Make sure that it takes in account for height too.
   }
@@ -57,7 +59,8 @@ function draw() {
     window_scale = int(window.innerWidth / 175) + 1;
   } else {
     window_scale = int(window.innerWidth / 150) + 1; // Make sure that it takes in account for height too.
-  }  weather_scale = int(window.innerWidth / 100);
+  }
+  weather_scale = int(window.innerWidth / 100);
   if (weather_scale < 5) {
     weather_scale = 5;
   }
@@ -166,16 +169,35 @@ function draw() {
 
 function mousePressed() {
   //THE WORLD SELECTION MENU
-  if (custom) {
-    setTimeout(Choosing(), 500);
-  } else if (chosen === false) {
-    setTimeout(Choice(), 500);
-  } else if (infoPage === true) {
-    setTimeout(BackClicked(), 500);
-    ClickInfo();
-  } else if (displayingweather === false) {
-    setTimeout(WorldClicked(), 500);
-  } else {
-    setTimeout(BackClicked(), 500);
+  if (mobile != true) {
+    if (custom) {
+      setTimeout(Choosing(), 500);
+    } else if (chosen === false) {
+      setTimeout(Choice(), 500);
+    } else if (infoPage === true) {
+      setTimeout(BackClicked(), 500);
+      ClickInfo();
+    } else if (displayingweather === false) {
+      setTimeout(WorldClicked(), 500);
+    } else {
+      setTimeout(BackClicked(), 500);
+    }
+  }
+}
+
+function mouseReleased() {
+  if (mobile){
+        if (custom) {
+      setTimeout(Choosing(), 500);
+    } else if (chosen === false) {
+      setTimeout(Choice(), 500);
+    } else if (infoPage === true) {
+      setTimeout(BackClicked(), 500);
+      ClickInfo();
+    } else if (displayingweather === false) {
+      setTimeout(WorldClicked(), 500);
+    } else {
+      setTimeout(BackClicked(), 500);
+    }
   }
 }
