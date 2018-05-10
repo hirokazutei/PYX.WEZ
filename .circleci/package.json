@@ -1,0 +1,10 @@
+{
+  "name": "PYX.WEZ Package",
+  "version": "1.2.1",
+  "description":
+    "This is not the best package in the world, this is just a tribute.",
+  "main": "",
+  "author": "Hirokazu",
+  "license": "",
+  "scripts": {}
+}
