@@ -1,4 +1,4 @@
-import PixelLetter from "./PixelObjects.js"
+import PixelLetter from "./PixelLetter.js"
 import "./Text.js"
 import "./Cities.js"
 import "./Circle.js"
@@ -112,7 +112,7 @@ function Choose() {
   }
 
   for (var i = 1; i <= worldmapWord.length; i++) {
-    PixelLetter(
+    new PixelLetter(
       s.int(s.width / 10) * 10 / 2 + 70 - (i * 60),
       s.int(s.height / 10) * 10 / 2 - 249,
       worldmapWord.charAt(worldmapWord.length - i)
