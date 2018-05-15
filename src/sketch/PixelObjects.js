@@ -215,7 +215,7 @@ function PixelNumber(x, y, n) {
   }
 }
 
-function PixelLetter(x, y, n, size) {
+export default function PixelLetter(x, y, n, size) {
   this.x = x;
   this.y = y;
   this.size = size;

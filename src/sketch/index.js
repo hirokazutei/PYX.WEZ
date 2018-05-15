@@ -1,4 +1,4 @@
-import "./PixelObjects.js"
+import PixelLetter from "./PixelObjects.js"
 import "./Text.js"
 import "./Cities.js"
 import "./Circle.js"
@@ -11,7 +11,7 @@ import "./SunMoon.js"
 import "./Weather.js"
 import "./WeatherSeverity.js"
 import "./InfoPage.js"
-import "./Custom.js"
+import Choose from "./Custom.js"
 
 export default function sketch(s) {
 
@@ -65,48 +65,188 @@ export default function sketch(s) {
   var weather_scale;
   var mobile            = false;
 
+  var worldmapWord    = "worldmap";
+  var customWord      = "custom";
+  var orWord          = "or";
+  var listOfWords     = ["Dawn", "Day", "Dusk", "Night", "Cloud", "Rain", "Snow", "Thund", "Hail", "Haze", "generate"];
+  var timeOfDayScroll = 0;
+
+  var nextButton = [
+      [0, 0, 0, 0, 0, 10, 10, 10, 20],
+      [0, 10, 20, 30, 40, 10, 20, 30, 20]
+  ];
+  var checkMark = [
+      [0, 10, 20, 30, 40],
+      [20, 30, 20, 10, 0]
+  ]
+  var infoMark = [
+      [10, 10, 20, 20, 20, 20, 20, 20, 30],
+      [30, 70, 10, 30, 40, 50, 60, 70, 70]
+  ]
+
+
+
+
+function Choose() {
+  s.stroke(30);
+
+  for (var i = 0; i < s.height; i = i + 10) {
+    s.line(0, i, s.width, i);
+  }
+
+  for (var i = 0; i < s.width; i = i + 10) {
+    s.line(i, 0, i, s.height);
+  }
+
+  s.fill(80);
+  s.noStroke();
+  s.stroke(0)
+
+  for (var i = 0; i < infoMark[0].length; i++) {
+    s.rect(
+      s.int(s.width / 10) * 10 - 80 + infoMark[0][i],
+      s.int(s.height / 10) * 10 - 120 + infoMark[1][i],
+      10,
+      10
+    );
+  }
+
+  for (var i = 1; i <= worldmapWord.length; i++) {
+    PixelLetter(
+      s.int(s.width / 10) * 10 / 2 + 70 - (i * 60),
+      s.int(s.height / 10) * 10 / 2 - 249,
+      worldmapWord.charAt(worldmapWord.length - i)
+    )
+  }
+
+  for (var i = 1; i <= customWord.length; i++) {
+    PixelLetter(
+      int(width / 10) * 10 / 2 + 350 - (i * 60),
+      int(height / 10) * 10 / 2 + 149,
+      customWord.charAt(customWord.length - i)
+    )
+  }
+
+  for (var i = 1; i <= orWord.length; i++) {
+    PixelLetter(
+      int(width / 10) * 10 / 2 + 70 - (i * 60),
+      int(height / 10) * 10 / 2 - 49,
+      orWord.charAt(orWord.length - i)
+    )
+  }
+
+  if (mouseX < width / 2 + 70 && mouseX > width / 2 - 410 && mouseY > height / 2 - 250 && mouseY < height / 2 - 180) {
+    fill(100);
+    stroke(80)
+    strokeWeight(1);
+
+    for (var i = 1; i <= worldmapWord.length; i++) {
+      PixelLetter(
+        int(width / 10) * 10 / 2 + 70 - (i * 60), int(height / 10) * 10 / 2 - 249, worldmapWord.charAt(worldmapWord.length - i))
+    }
+
+  } else if (mouseX < width / 2 + 350 && mouseX > width / 2 - 10 && mouseY > height / 2 + 150 && mouseY < height / 2 + 220) {
+
+    fill(100);
+    stroke(80)
+    strokeWeight(1);
+
+    for (var i = 1; i <= customWord.length; i++) {
+      PixelLetter(
+        int(width / 10) * 10 / 2 + 350 - (i * 60),
+        int(height / 10) * 10 / 2 + 149,
+        customWord.charAt(customWord.length - i)
+      )
+    }
+
+  } else if (mouseX < int(width / 10) * 10 - 50 && mouseX > int(width / 10) * 10 - 80 && mouseY > int(height / 10) * 10 - 120 && mouseY < int(height / 10) * 10 - 0) {
+
+    fill(100);
+    stroke(80)
+    strokeWeight(1);
+
+    for (var i = 0; i < infoMark[0].length; i++) {
+      s.rect(
+        int(width / 10) * 10 - 80 + infoMark[0][i],
+        int(height / 10) * 10 - 120 + infoMark[1][i],
+        10,
+        10
+      );
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   s.setup = () => {
     let swidth = window.innerWidth;
     let sheight = window.innerHeight;
+
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
       window_scale = s.int(window.innerWidth / 175) + 1;
       mobile = true;
     } else {
       window_scale = s.int(window.innerWidth / 150) + 1; // Make sure that it takes in account for height too.
     }
+
     weather_scale = s.int(window.innerWidth / 100);
-    createCanvas(swidth, sheight);
-    colorMode(RGB, 100, 100, 100, 100);
-    noSmooth();
-    strokeCap(SQUARE);
-    frameRate(10);
-    setInterval(getAPI, 1000);
+
+    s.createCanvas(swidth, sheight);
+    s.colorMode(s.RGB, 100, 100, 100, 100);
+    s.noSmooth();
+    s.strokeCap(s.SQUARE);
+    s.frameRate(10);
+    setInterval(s.getAPI, 1000);
   }
 
   s.draw = () => {
-    //UPDATE WINDOW SIZE
-    swidth = window.innerWidth;
-    sheight = window.innerHeight;
+    let swidth = window.innerWidth;
+    let sheight = window.innerHeight;
+
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
       window_scale = s.int(window.innerWidth / 175) + 1;
     } else {
       window_scale = s.int(window.innerWidth / 150) + 1; // Make sure that it takes in account for height too.
     }
     weather_scale = s.int(window.innerWidth / 100);
+
     if (weather_scale < 5) {
       weather_scale = 5;
     }
+
     if (window_scale < 2) {
       window_scale = 2;
     }
 
-    createCanvas(swidth, sheight);
+    s.createCanvas(swidth, sheight);
+    s.background(0);
+    s.noStroke();
 
-    //BASIC SET-UP
-    background(0);
-    noStroke();
     if (chosen === false) {
-      background(20);
+      s.background(20);
       Choose();
 
     } else if (custom) {
@@ -116,72 +256,51 @@ export default function sketch(s) {
       Info();
       BackButton();
 
-      //IF THE NECEESARY COMPONENT EXISTS, RENDER THE SKY
     } else if (weatherexist && timeexist) {
       displayingweather = true;
       Sky();
 
-      //IF THE TIME OF THE DAY IS AT NIGHT, RENDER THE STARS
       if (timeofday == "night") {
         Blink();
         Starring();
       }
 
-      //DRAW THE SUN OR MOON
       SunMoon();
       DrawPixel();
 
-      //#CHANGE: ADJUSTING FOR CLOUD AMOUNTS
-
       if (clouds) {
         cloudamount = apiclouds / 2;
-        //DRAW THE CLOUD AND MAKE THEM FLOAT
         Clouding();
         Floats();
       }
 
-
-      /*
-        if (hazing){
-        Hazing();
-        Drifts();
-        }
-        */
-
-
-      //IF SNOWING, RENDER THE SNOW
       if (snowing) {
         Snowing();
         Melt();
       }
 
-      //IF RAINING, RENDER RAIN
       if (raining) {
         Raining();
         Drop();
       }
 
-      //IF FREEZING RAIN, SLEET OR HAIL
       if (freezing) {
         freezeamount = 200;
         Hailing();
         Freeze();
       }
 
-      //IF THERE IS A THUNDERSTORM, RENDER LIGHTNING
       if (thundering) {
         Zapping();
         Zaps();
       }
 
-      //ADD VARIOUS TEXTS
       if (customed == false) {
         Text();
         TextPixel();
         TimeofDay();
       }
 
-      //ADD ICON THAT ALLOWS YOU TO GO BACK
       BackButton();
 
 
