@@ -137,12 +137,20 @@ function Floats() {
   if (wind) {
     for (var i = 0; i < cloud.length; i++) {
       if (cloud[i].x - cloudsize * 10 >= width) {
-        cloud[i] = new Cloud(0, int(random((cloudamount * 7 + 300) / 10)) * 10, wind + random(-wind + 2, 10), random(80, 90));
+        cloud[i] = new Cloud(
+          0,
+          int(random((cloudamount * 7 + 300) / 10)) * 10,
+          wind + random(-wind + 2, 10),
+          random(80, 90));
       }
     }
     if (cloud.length < cloudamount) {
       for (var i = 0; i < cloudamount; i++) {
-        cloud[i] = new Cloud(random(width), int(random((cloudamount * 7 + 300) / 10)) * 10, wind + random(-wind + 2, 10), random(80, 90));
+        cloud[i] = new Cloud(
+          random(width),
+          int(random((cloudamount * 7 + 300) / 10)) * 10,
+          wind + random(-wind + 2, 10),
+          random(80, 90));
       }
     }
   }
@@ -182,7 +190,11 @@ function Star(x, y, b, a) {
 
 function Blink() {
   while (stars.length < staramount) {
-    stars.push(new Star(int(random(0, width / 20)) * 20, int(random(0, height / 20)) * 20, random(50, 100), random(60, 150)))
+    stars.push(new Star(
+      int(random(0, width / 20)) * 20,
+      int(random(0, height / 20)) * 20,
+      random(50, 100),
+      random(60, 150)))
   }
 }
 
@@ -290,11 +302,21 @@ function Hailing() {
 function Freeze() {
   for (var i = 0; i < hail.length; i++) {
     if (hail[i].y >= height || hail[i].x >= width || hail.length > freezeamount) {
-      hail[i] = new Hail(random(-(wind) * 180, width), 0, wind, random(10, 20), random(30, 60));
+      hail[i] = new Hail(
+        random(-(wind) * 180, width),
+        0,
+        wind,
+        random(10, 20),
+        random(30, 60));
     }
   }
   if (hail.length < freezeamount) {
-    hail.push(new Hail(random(-(wind) * 180, width), 0, wind, random(10, 20), random(30, 60)))
+    hail.push(new Hail(
+      random(-(wind) * 180, width),
+      0,
+      wind,
+      random(10, 20),
+      random(30, 60)))
   }
 }
 
@@ -357,12 +379,21 @@ function Drifts() {
   if (wind) {
     for (var i = 0; i < haze.length; i++) {
       if (haze[i].x - hazesize * 10 >= width) {
-        h[i] = new Haze(0, int(random((hazeamount * 7 + 300) / 10)) * 10, wind + random(-wind + 2, 10), random(80, 90));
+        h[i] = new Haze(
+          0,
+          int(random((hazeamount * 7 + 300) / 10)) * 10,
+          wind + random(-wind + 2, 10),
+          random(80, 90));
+
       }
     }
     if (haze.length < hazeamount) {
       for (var i = 0; i < hazeamount; i++) {
-        haze[i] = new Haze(random(width), height, wind + random(-wind + 2, 10), random(80, 90));
+        haze[i] = new Haze(
+          random(width),
+          height,
+          wind + random(-wind + 2, 10),
+          random(80, 90));
       }
     }
   }
