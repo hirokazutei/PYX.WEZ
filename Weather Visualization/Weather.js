@@ -85,14 +85,14 @@ var cloudamount;
 var cloudsize;
 
 function Cloud(x, y, v, a) {
-  this.x = x;
-  this.y = y;
-  this.v = v;
-  this.a = a
-  this.cloudx = [];
-  this.cloudy = [];
-  this.formation = [];
-  this.cloudsize = cloudsize + round(random(-10, 10));
+  this.x          = x;
+  this.y          = y;
+  this.v          = v;
+  this.a          = a
+  this.cloudx     = [];
+  this.cloudy     = [];
+  this.formation  = [];
+  this.cloudsize  = cloudsize + round(random(-10, 10));
   this.cloudcurve = 2;
 
   for (var i = 0; i < this.cloudsize; i++) {
@@ -148,16 +148,11 @@ function Floats() {
   }
 }
 
-
-
 function Clouding() {
   for (var i = 0; i < cloud.length; i++) {
     cloud[i].Clouds();
   }
 }
-
-
-
 
 //STARS!
 
@@ -197,9 +192,6 @@ function Starring() {
     stars[i].Stars();
   }
 }
-
-
-
 
 //Lightning
 
@@ -251,9 +243,6 @@ function Lightning(a) {
   }
 }
 
-
-
-
 function Zapping() {
   for (var i = 0; i < lightning.length; i++) {
     lightning[i].Lightnings();
@@ -268,7 +257,6 @@ function Zaps() {
     lightning.push(new Lightning(light));
   }
 }
-
 
 
 //FREEZING RAIN
@@ -310,27 +298,22 @@ function Freeze() {
   }
 }
 
-
-
-
-
-
 //HAZE
 
-var haze = [];
-var hazesize = 1000;
-var hazeColor = [100, 100, 100, 20];
+var haze       = [];
+var hazesize   = 1000;
+var hazeColor  = [100, 100, 100, 20];
 var hazeamount = 5;
 
 function Haze(x, y, v, a) {
-  this.x = x;
-  this.y = y;
-  this.v = v;
-  this.a = a
-  this.hazex = [];
-  this.hazey = [];
+  this.x         = x;
+  this.y         = y;
+  this.v         = v;
+  this.a         = a
+  this.hazex     = [];
+  this.hazey     = [];
   this.formation = [];
-  this.hazesize = hazesize + round(random(-10, 10));
+  this.hazesize  = hazesize + round(random(-10, 10));
   this.hazecurve = 30;
 
   for (var i = 0; i < this.hazesize; i++) {
