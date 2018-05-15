@@ -1,8 +1,3 @@
-
-
-
-
-
 export default function sketch(s) {
   let x, y, backgroundColor;
 
