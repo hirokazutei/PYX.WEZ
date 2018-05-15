@@ -82,6 +82,8 @@ export default function sketch(s) {
 
 
 function Choose() {
+
+  // Draw Grid
   s.stroke(30);
 
   for (var i = 0; i < s.height; i = i + 10) {
@@ -96,6 +98,7 @@ function Choose() {
   s.noStroke();
   s.stroke(0)
 
+  // Draw Info Icon
   let info = [
     [10, 30],
     [10, 70],
@@ -117,6 +120,7 @@ function Choose() {
     );
   })
 
+  // Draw initial choice message
 
   //for (var i = 1; i <= worldmapWord.length; i++) {
   //_.each("worldmap".split(""), (letter, index) => {
@@ -202,11 +206,6 @@ function Choose() {
   //}
 
 }
-
-
-
-
-
 
   s.setup = () => {
     let swidth = window.innerWidth;
@@ -359,30 +358,3 @@ function Choose() {
   }
 
 }
-
-//export default function sketch(s) {
-//let x, y, backgroundColor;
-
-//const width = 500;
-//const height = 500;
-
-//s.setup = () => {
-//s.createCanvas(width, height);
-//backgroundColor = s.color(s.random(255), s.random(255), s.random(255));
-
-//x = s.random(width);
-//y = height / 2;
-//};
-
-//s.draw = () => {
-//s.background(backgroundColor);
-//s.fill(s.color(255, 0, 0));
-//s.ellipse(x, y, 100, 100);
-
-//x = (x + 1) % width;
-//};
-
-  //s.mousePressed = () => {
-    //backgroundColor = s.color(s.random(255), s.random(255), s.random(255));
-  //};
-//}
