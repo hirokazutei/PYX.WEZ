@@ -135,17 +135,30 @@ function Choose() {
     )
   }
 
-  if (mouseX < width / 2 + 70 && mouseX > width / 2 - 410 && mouseY > height / 2 - 250 && mouseY < height / 2 - 180) {
+  if (
+    mouseX < width / 2 + 70 &&
+    mouseX > width / 2 - 410 &&
+    mouseY > height / 2 - 250 &&
+    mouseY < height / 2 - 180
+  ) {
     fill(100);
     stroke(80)
     strokeWeight(1);
 
     for (var i = 1; i <= worldmapWord.length; i++) {
       PixelLetter(
-        int(width / 10) * 10 / 2 + 70 - (i * 60), int(height / 10) * 10 / 2 - 249, worldmapWord.charAt(worldmapWord.length - i))
+        int(width / 10) * 10 / 2 + 70 - (i * 60),
+        int(height / 10) * 10 / 2 - 249,
+        worldmapWord.charAt(worldmapWord.length - i)
+      )
     }
 
-  } else if (mouseX < width / 2 + 350 && mouseX > width / 2 - 10 && mouseY > height / 2 + 150 && mouseY < height / 2 + 220) {
+  } else if (
+    mouseX < width / 2 + 350 &&
+    mouseX > width / 2 - 10 &&
+    mouseY > height / 2 + 150 &&
+    mouseY < height / 2 + 220
+  ) {
 
     fill(100);
     stroke(80)
@@ -159,7 +172,12 @@ function Choose() {
       )
     }
 
-  } else if (mouseX < int(width / 10) * 10 - 50 && mouseX > int(width / 10) * 10 - 80 && mouseY > int(height / 10) * 10 - 120 && mouseY < int(height / 10) * 10 - 0) {
+  } else if (
+    mouseX < int(width / 10) * 10 - 50 &&
+    mouseX > int(width / 10) * 10 - 80 &&
+    mouseY > int(height / 10) * 10 - 120 &&
+    mouseY < int(height / 10) * 10 - 0
+  ) {
 
     fill(100);
     stroke(80)
