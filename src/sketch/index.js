@@ -79,10 +79,6 @@ export default function sketch(s) {
       [0, 10, 20, 30, 40],
       [20, 30, 20, 10, 0]
   ]
-  var infoMark = [
-      [10, 10, 20, 20, 20, 20, 20, 20, 30],
-      [30, 70, 10, 30, 40, 50, 60, 70, 70]
-  ]
 
 
 
@@ -102,7 +98,24 @@ function Choose() {
   s.noStroke();
   s.stroke(0)
 
-  //_.each(infoMark[0], (letter) => {
+  //b.zip(a)
+  //[x, y],
+  //[30, 10],
+  //[70, 10],
+  //[10, 20],
+  //[30, 20],
+  //[40, 20],
+  //[50, 20],
+  //[60, 20],
+  //[70, 20],
+  //[70, 30]]
+
+  let infoMark = [
+      [10, 10, 20, 20, 20, 20, 20, 20, 30], // x
+      [30, 70, 10, 30, 40, 50, 60, 70, 70]  // y
+  ]
+
+  // "Make it 10px by 10px at these co-ordinates."
   for (var i = 0; i < infoMark[0].length; i++) {
     s.rect(
       s.int(s.width  / 10) * 10 - 80  + infoMark[0][i],
@@ -112,108 +125,105 @@ function Choose() {
     );
   }
 
-  for (var i = 1; i <= worldmapWord.length; i++) {
-    new PixelLetter(
-      s.int(s.width  / 10) * 10 / 2 + 70 - (i * 60),
-      s.int(s.height / 10) * 10 / 2 - 249,
-      worldmapWord.charAt(worldmapWord.length - i)
+  let z = [
+    [0,  0,  0,  10, 10, 10, 20, 20, 20, 30,  30,  30, 40,  40,  40],
+    [0,  50, 60, 0,  40, 60, 0,  30, 60, 0,   20,  60, 0,   10,  60]
+  ]
+
+  let char_span = z[0].length
+  _.times(char_span, (i) => {
+    s.rect(
+      z[0][i],
+      z[1][i],
+      100,
+      100
     )
-  }
+  })
 
-  for (var i = 1; i <= customWord.length; i++) {
-    PixelLetter(
-      int(width  / 10) * 10 / 2 + 350 - (i * 60),
-      int(height / 10) * 10 / 2 + 149,
-      customWord.charAt(customWord.length - i)
-    )
-  }
+  //for (var i = 1; i <= worldmapWord.length; i++) {
+  //_.each("worldmap".split(""), (letter, index) => {
+    //PixelLetter(
+      //100 + (index * 50),
+      //100,
+      //letter
+    //)
+  //})
 
-  for (var i = 1; i <= orWord.length; i++) {
-    PixelLetter(
-      int(width  / 10) * 10 / 2 + 70 - (i * 60),
-      int(height / 10) * 10 / 2 - 49,
-      orWord.charAt(orWord.length - i)
-    )
-  }
+  //for (var i = 1; i <= customWord.length; i++) {
+    //PixelLetter(
+      //int(width  / 10) * 10 / 2 + 350 - (i * 60),
+      //int(height / 10) * 10 / 2 + 149,
+      //customWord.charAt(customWord.length - i)
+    //)
+  //}
 
-  if (
-    mouseX < width  / 2 + 70  &&
-    mouseX > width  / 2 - 410 &&
-    mouseY > height / 2 - 250 &&
-    mouseY < height / 2 - 180
-  ) {
-    fill(100);
-    stroke(80)
-    strokeWeight(1);
+  //for (var i = 1; i <= orWord.length; i++) {
+    //PixelLetter(
+      //int(width  / 10) * 10 / 2 + 70 - (i * 60),
+      //int(height / 10) * 10 / 2 - 49,
+      //orWord.charAt(orWord.length - i)
+    //)
+  //}
 
-    for (var i = 1; i <= worldmapWord.length; i++) {
-      PixelLetter(
-        int(width  / 10) * 10 / 2 + 70 - (i * 60),
-        int(height / 10) * 10 / 2 - 249,
-        worldmapWord.charAt(worldmapWord.length - i)
-      )
-    }
+  //if (
+    //mouseX < width  / 2 + 70  &&
+    //mouseX > width  / 2 - 410 &&
+    //mouseY > height / 2 - 250 &&
+    //mouseY < height / 2 - 180
+  //) {
+    //fill(100);
+    //stroke(80)
+    //strokeWeight(1);
 
-  } else if (
-    mouseX < width  / 2 + 350 &&
-    mouseX > width  / 2 - 10  &&
-    mouseY > height / 2 + 150 &&
-    mouseY < height / 2 + 220
-  ) {
+    //for (var i = 1; i <= worldmapWord.length; i++) {
+      //PixelLetter(s,
+        //int(width  / 10) * 10 / 2 + 70 - (i * 60),
+        //int(height / 10) * 10 / 2 - 249,
+        //worldmapWord.charAt(worldmapWord.length - i)
+      //)
+    //}
 
-    fill(100);
-    stroke(80)
-    strokeWeight(1);
+  //} else if (
+    //mouseX < width  / 2 + 350 &&
+    //mouseX > width  / 2 - 10  &&
+    //mouseY > height / 2 + 150 &&
+    //mouseY < height / 2 + 220
+  //) {
 
-    for (var i = 1; i <= customWord.length; i++) {
-      PixelLetter(
-        int(width  / 10) * 10 / 2 + 350 - (i * 60),
-        int(height / 10) * 10 / 2 + 149,
-        customWord.charAt(customWord.length - i)
-      )
-    }
+    //fill(100);
+    //stroke(80)
+    //strokeWeight(1);
 
-  } else if (
-    mouseX < int(width  / 10) * 10 - 50  &&
-    mouseX > int(width  / 10) * 10 - 80  &&
-    mouseY > int(height / 10) * 10 - 120 &&
-    mouseY < int(height / 10) * 10 - 0
-  ) {
+    //for (var i = 1; i <= customWord.length; i++) {
+      //PixelLetter(
+        //int(width  / 10) * 10 / 2 + 350 - (i * 60),
+        //int(height / 10) * 10 / 2 + 149,
+        //customWord.charAt(customWord.length - i)
+      //)
+    //}
 
-    fill(100);
-    stroke(80)
-    strokeWeight(1);
+  //} else if (
+    //mouseX < int(width  / 10) * 10 - 50  &&
+    //mouseX > int(width  / 10) * 10 - 80  &&
+    //mouseY > int(height / 10) * 10 - 120 &&
+    //mouseY < int(height / 10) * 10 - 0
+  //) {
 
-    for (var i = 0; i < infoMark[0].length; i++) {
-      s.rect(
-        int(width  / 10) * 10 - 80  + infoMark[0][i],
-        int(height / 10) * 10 - 120 + infoMark[1][i],
-        10,
-        10
-      );
-    }
-  }
+    //fill(100);
+    //stroke(80)
+    //strokeWeight(1);
+
+    //for (var i = 0; i < infoMark[0].length; i++) {
+      //s.rect(
+        //int(width  / 10) * 10 - 80  + infoMark[0][i],
+        //int(height / 10) * 10 - 120 + infoMark[1][i],
+        //10,
+        //10
+      //);
+    //}
+  //}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -341,7 +351,7 @@ function Choose() {
       if (custom) {
         setTimeout(Choosing(), 500);
       } else if (chosen === false) {
-        setTimeout(Choice(), 500);
+        //setTimeout(Choice(), 500);
       } else if (infoPage === true) {
         setTimeout(BackClicked(), 500);
         ClickInfo();
