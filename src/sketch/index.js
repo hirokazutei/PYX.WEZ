@@ -98,33 +98,30 @@ function Choose() {
   s.noStroke();
   s.stroke(0)
 
-  // Draw Info Icon
-  let info = [
-    [10, 30],
-    [10, 70],
-    [20, 10],
-    [20, 30],
-    [20, 40],
-    [20, 50],
-    [20, 60],
-    [20, 70],
-    [30, 70]
-  ]
-
-  function draw_letter(pixels, offset=0) {
+  function draw_letter(letter, x_offset=0, y_offset=0) {
+    let pixels = Letter[letter]
     _.each(pixels, (coords) => {
       let x = coords[0]
       let y = coords[1]
       s.rect(
-        x + offset,
-        y,
+        x + x_offset,
+        y + y_offset,
         10,
         10
       );
     })
   }
 
-  draw_letter(info, 100)
+  draw_letter("info", 500)
+
+  function draw_word(word) {
+    let letters = word.split("")
+    _.each(letters, (letter, index) => {
+      draw_letter(letter, index * 60)
+    })
+  }
+
+  draw_word("bat")
 
   // Draw initial choice message
 
