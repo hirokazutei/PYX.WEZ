@@ -1,22 +1,3 @@
-
-    if (n == "a" || n == "A") {
-      this.n = 0;
-
-// First I though about doing a switch, but it didn't work
-//const pixelletters = [
-function test(n) {
-  switch(n) {
-    case "a" | "A" :
-      console.log("A")
-      break;
-    case "b" | "B" :
-      console.log("A")
-      break;
-    default:
-      console.log("None")
-  }
-}
-
 // Then I realized what the deal with the capitalization was, and that
 // we could just say n.lowerCase() to cut the problem in half!
 const letters = {
@@ -148,24 +129,26 @@ const letters = {
 
 export default function PixelLetter(x, y, n, size) {
 
-    if (size) {
-      for (var i = 0; i < pixelletters[this.n][0].length; i++) {
-        rect(
-          this.x + pixelletters[this.n][0][i] / 10 * size,
-          this.y + pixelletters[this.n][1][i] / 10 * size,
-          size,
-          size
-        );
-      }
-    } else {
+    //if (size) {
+      //for (var i = 0; i < pixelletters[this.n][0].length; i++) {
+        //rect(
+          //this.x + pixelletters[this.n][0][i] / 10 * size,
+          //this.y + pixelletters[this.n][1][i] / 10 * size,
+          //size,
+          //size
+        //);
+      //}
+    //} else {
+
+      //_.each(infoMark[0], (letter) => {
       for (var i = 0; i < pixelletters[this.n][0].length; i++) {
         rect(
           this.x + pixelletters[this.n][0][i],
           this.y + pixelletters[this.n][1][i],
           10,
           10
-      );
+        );
       }
-    }
+    //}
 
 }

@@ -13,10 +13,11 @@ import "./WeatherSeverity.js"
 import "./InfoPage.js"
 import Choose from "./Custom.js"
 
+
 export default function sketch(s) {
 
   // Weather
-  var apiweather,
+  let apiweather,
       apitime,
       weather,
       temperature,
@@ -30,7 +31,7 @@ export default function sketch(s) {
       sunset;
 
   // Weather booleans
-  var snowing,
+  let snowing,
     drizzling,
     raining,
     clouds,
@@ -38,38 +39,37 @@ export default function sketch(s) {
     thundering,
     hazing,
     freezing,
-    noriseset;
+    noriseset
 
   // Intensity
-  var apiclouds;
-  var freezeamount;
-  var rainamount;
-  var snowamount;
-  var weatherSeverity;
-  var name              = "Unknown Place";
-  var rainheaviness     = 40;
-  var lat, lon;
-  var SunMoonColor      = [0, 0, 0, 0];
-  var CloudColor        = [0, 0, 0, 0];
-  var lettervalue       = 0;
-  var cityselect        = false;
-  var weatherexist      = false;
-  var timeexist         = false;
-  var displayingweather = false;
-  var bigcity           = false;
-  var chosen            = false;
-  var custom;
-  var customed          = false;
-  var infoPage          = false;
-  var window_scale;
-  var weather_scale;
-  var mobile            = false;
-
-  var worldmapWord    = "worldmap";
-  var customWord      = "custom";
-  var orWord          = "or";
-  var listOfWords     = ["Dawn", "Day", "Dusk", "Night", "Cloud", "Rain", "Snow", "Thund", "Hail", "Haze", "generate"];
-  var timeOfDayScroll = 0;
+  let apiclouds,
+      freezeamount,
+      rainamount,
+      snowamount,
+      weatherSeverity,
+      name              = "Unknown Place",
+      rainheaviness     = 40,
+      lat, lon,
+      SunMoonColor      = [0, 0, 0, 0],
+      CloudColor        = [0, 0, 0, 0],
+      lettervalue       = 0,
+      cityselect        = false,
+      weatherexist      = false,
+      timeexist         = false,
+      displayingweather = false,
+      bigcity           = false,
+      chosen            = false,
+      custom,
+      customed          = false,
+      infoPage          = false,
+      window_scale,
+      weather_scale,
+      mobile            = false,
+      worldmapWord      = "worldmap",
+      customWord        = "custom",
+      orWord            = "or",
+      listOfWords       = ["Dawn", "Day", "Dusk", "Night", "Cloud", "Rain", "Snow", "Thund", "Hail", "Haze", "generate"],
+      timeOfDayScroll   = 0
 
   var nextButton = [
       [0, 0, 0, 0, 0, 10, 10, 10, 20],
@@ -102,9 +102,10 @@ function Choose() {
   s.noStroke();
   s.stroke(0)
 
+  //_.each(infoMark[0], (letter) => {
   for (var i = 0; i < infoMark[0].length; i++) {
     s.rect(
-      s.int(s.width / 10) * 10 - 80 + infoMark[0][i],
+      s.int(s.width  / 10) * 10 - 80  + infoMark[0][i],
       s.int(s.height / 10) * 10 - 120 + infoMark[1][i],
       10,
       10
@@ -113,7 +114,7 @@ function Choose() {
 
   for (var i = 1; i <= worldmapWord.length; i++) {
     new PixelLetter(
-      s.int(s.width / 10) * 10 / 2 + 70 - (i * 60),
+      s.int(s.width  / 10) * 10 / 2 + 70 - (i * 60),
       s.int(s.height / 10) * 10 / 2 - 249,
       worldmapWord.charAt(worldmapWord.length - i)
     )
@@ -121,7 +122,7 @@ function Choose() {
 
   for (var i = 1; i <= customWord.length; i++) {
     PixelLetter(
-      int(width / 10) * 10 / 2 + 350 - (i * 60),
+      int(width  / 10) * 10 / 2 + 350 - (i * 60),
       int(height / 10) * 10 / 2 + 149,
       customWord.charAt(customWord.length - i)
     )
@@ -129,15 +130,15 @@ function Choose() {
 
   for (var i = 1; i <= orWord.length; i++) {
     PixelLetter(
-      int(width / 10) * 10 / 2 + 70 - (i * 60),
+      int(width  / 10) * 10 / 2 + 70 - (i * 60),
       int(height / 10) * 10 / 2 - 49,
       orWord.charAt(orWord.length - i)
     )
   }
 
   if (
-    mouseX < width / 2 + 70 &&
-    mouseX > width / 2 - 410 &&
+    mouseX < width  / 2 + 70  &&
+    mouseX > width  / 2 - 410 &&
     mouseY > height / 2 - 250 &&
     mouseY < height / 2 - 180
   ) {
@@ -147,15 +148,15 @@ function Choose() {
 
     for (var i = 1; i <= worldmapWord.length; i++) {
       PixelLetter(
-        int(width / 10) * 10 / 2 + 70 - (i * 60),
+        int(width  / 10) * 10 / 2 + 70 - (i * 60),
         int(height / 10) * 10 / 2 - 249,
         worldmapWord.charAt(worldmapWord.length - i)
       )
     }
 
   } else if (
-    mouseX < width / 2 + 350 &&
-    mouseX > width / 2 - 10 &&
+    mouseX < width  / 2 + 350 &&
+    mouseX > width  / 2 - 10  &&
     mouseY > height / 2 + 150 &&
     mouseY < height / 2 + 220
   ) {
@@ -166,15 +167,15 @@ function Choose() {
 
     for (var i = 1; i <= customWord.length; i++) {
       PixelLetter(
-        int(width / 10) * 10 / 2 + 350 - (i * 60),
+        int(width  / 10) * 10 / 2 + 350 - (i * 60),
         int(height / 10) * 10 / 2 + 149,
         customWord.charAt(customWord.length - i)
       )
     }
 
   } else if (
-    mouseX < int(width / 10) * 10 - 50 &&
-    mouseX > int(width / 10) * 10 - 80 &&
+    mouseX < int(width  / 10) * 10 - 50  &&
+    mouseX > int(width  / 10) * 10 - 80  &&
     mouseY > int(height / 10) * 10 - 120 &&
     mouseY < int(height / 10) * 10 - 0
   ) {
@@ -185,7 +186,7 @@ function Choose() {
 
     for (var i = 0; i < infoMark[0].length; i++) {
       s.rect(
-        int(width / 10) * 10 - 80 + infoMark[0][i],
+        int(width  / 10) * 10 - 80  + infoMark[0][i],
         int(height / 10) * 10 - 120 + infoMark[1][i],
         10,
         10
