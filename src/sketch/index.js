@@ -111,16 +111,27 @@ function Choose() {
     [30, 70]
   ]
 
-  _.each(info, (xy) => {
-    s.rect(
-      s.int(s.width  / 10) * 10 - 80  + xy[0],
-      s.int(s.height / 10) * 10 - 120 + xy[1],
-      10,
-      10
-    );
-  })
+  function draw_letter(pixels, offset=0) {
+    _.each(pixels, (coords) => {
+      let x = coords[0]
+      let y = coords[1]
+      s.rect(
+        x + offset,
+        y,
+        10,
+        10
+      );
+    })
+  }
+
+  draw_letter(info, 100)
 
   // Draw initial choice message
+
+//  draw_word
+//    forEach |letter|
+//      - draw pixels
+//      - add X pixels to the right
 
   //for (var i = 1; i <= worldmapWord.length; i++) {
   //_.each("worldmap".split(""), (letter, index) => {
