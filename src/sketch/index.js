@@ -1,3 +1,19 @@
+import "./Sketch.js"
+import "./PixelObjects.js"
+import "./Text.js"
+import "./Cities.js"
+import "./Circle.js"
+import "./World.js"
+import "./APIFunctions.js"
+import "./Pixel.js"
+import "./Time.js"
+import "./Sky.js"
+import "./SunMoon.js"
+import "./Weather.js"
+import "./WeatherSeverity.js"
+import "./InfoPage.js"
+import "./Custom.js"
+
 export default function sketch(s) {
   let x, y, backgroundColor;
 
