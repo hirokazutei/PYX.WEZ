@@ -1,17 +1,17 @@
-import PixelLetter from "./PixelLetter.js"
-import "./Text.js"
-import "./Cities.js"
-import "./Circle.js"
-import "./World.js"
-import "./APIFunctions.js"
-import "./Pixel.js"
-import "./Time.js"
-import "./Sky.js"
-import "./SunMoon.js"
-import "./Weather.js"
-import "./WeatherSeverity.js"
-import "./InfoPage.js"
-import Choose from "./Custom.js"
+import Choose from "./Custom"
+import Letter from "./Letter"
+import "./Text"
+import "./Cities"
+import "./Circle"
+import "./World"
+import "./APIFunctions"
+import "./Pixel"
+import "./Time"
+import "./Sky"
+import "./SunMoon"
+import "./Weather"
+import "./WeatherSeverity"
+import "./InfoPage"
 
 
 export default function sketch(s) {
@@ -81,8 +81,6 @@ export default function sketch(s) {
   ]
 
 
-
-
 function Choose() {
   s.stroke(30);
 
@@ -98,47 +96,27 @@ function Choose() {
   s.noStroke();
   s.stroke(0)
 
-  //b.zip(a)
-  //[x, y],
-  //[30, 10],
-  //[70, 10],
-  //[10, 20],
-  //[30, 20],
-  //[40, 20],
-  //[50, 20],
-  //[60, 20],
-  //[70, 20],
-  //[70, 30]]
-
-  let infoMark = [
-      [10, 10, 20, 20, 20, 20, 20, 20, 30], // x
-      [30, 70, 10, 30, 40, 50, 60, 70, 70]  // y
+  let info = [
+    [10, 30],
+    [10, 70],
+    [20, 10],
+    [20, 30],
+    [20, 40],
+    [20, 50],
+    [20, 60],
+    [20, 70],
+    [30, 70]
   ]
 
-  // "Make it 10px by 10px at these co-ordinates."
-  for (var i = 0; i < infoMark[0].length; i++) {
+  _.each(info, (xy) => {
     s.rect(
-      s.int(s.width  / 10) * 10 - 80  + infoMark[0][i],
-      s.int(s.height / 10) * 10 - 120 + infoMark[1][i],
+      s.int(s.width  / 10) * 10 - 80  + xy[0],
+      s.int(s.height / 10) * 10 - 120 + xy[1],
       10,
       10
     );
-  }
-
-  let z = [
-    [0,  0,  0,  10, 10, 10, 20, 20, 20, 30,  30,  30, 40,  40,  40],
-    [0,  50, 60, 0,  40, 60, 0,  30, 60, 0,   20,  60, 0,   10,  60]
-  ]
-
-  let char_span = z[0].length
-  _.times(char_span, (i) => {
-    s.rect(
-      z[0][i],
-      z[1][i],
-      100,
-      100
-    )
   })
+
 
   //for (var i = 1; i <= worldmapWord.length; i++) {
   //_.each("worldmap".split(""), (letter, index) => {
