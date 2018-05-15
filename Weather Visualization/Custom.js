@@ -1,8 +1,9 @@
-var worldmapWord = "worldmap";
-var customWord = "custom";
-var orWord = "or";
-var listOfWords = ["Dawn", "Day", "Dusk", "Night", "Cloud", "Rain", "Snow", "Thund", "Hail", "Haze", "generate"];
+var worldmapWord    = "worldmap";
+var customWord      = "custom";
+var orWord          = "or";
+var listOfWords     = ["Dawn", "Day", "Dusk", "Night", "Cloud", "Rain", "Snow", "Thund", "Hail", "Haze", "generate"];
 var timeOfDayScroll = 0;
+
 var nextButton = [
     [0, 0, 0, 0, 0, 10, 10, 10, 20],
     [0, 10, 20, 30, 40, 10, 20, 30, 20]
@@ -18,50 +19,92 @@ var infoMark = [
 
 
 function Choose() {
-    stroke(30);
-    for (var i = 0; i < height; i = i + 10) {
-        line(0, i, width, i);
-    }
-    for (var i = 0; i < width; i = i + 10) {
-        line(i, 0, i, height);
-    }
-    fill(80);
-    noStroke();
-    stroke(0)
-    for (var i = 0; i < infoMark[0].length; i++) {
-        rect(int(width / 10) * 10 - 80 + infoMark[0][i], int(height / 10) * 10 - 120 + infoMark[1][i], 10, 10);
-    }
+  stroke(30);
+
+  for (var i = 0; i < height; i = i + 10) {
+    line(0, i, width, i);
+  }
+
+  for (var i = 0; i < width; i = i + 10) {
+    line(i, 0, i, height);
+  }
+
+  fill(80);
+  noStroke();
+  stroke(0)
+
+  for (var i = 0; i < infoMark[0].length; i++) {
+    rect(
+      int(width / 10) * 10 - 80 + infoMark[0][i],
+      int(height / 10) * 10 - 120 + infoMark[1][i],
+      10,
+      10
+    );
+  }
+
+  for (var i = 1; i <= worldmapWord.length; i++) {
+    PixelLetter(
+      int(width / 10) * 10 / 2 + 70 - (i * 60),
+      int(height / 10) * 10 / 2 - 249,
+      worldmapWord.charAt(worldmapWord.length - i)
+    )
+  }
+
+  for (var i = 1; i <= customWord.length; i++) {
+    PixelLetter(
+      int(width / 10) * 10 / 2 + 350 - (i * 60),
+      int(height / 10) * 10 / 2 + 149,
+      customWord.charAt(customWord.length - i)
+    )
+  }
+
+  for (var i = 1; i <= orWord.length; i++) {
+    PixelLetter(
+      int(width / 10) * 10 / 2 + 70 - (i * 60),
+      int(height / 10) * 10 / 2 - 49,
+      orWord.charAt(orWord.length - i)
+    )
+  }
+
+  if (mouseX < width / 2 + 70 && mouseX > width / 2 - 410 && mouseY > height / 2 - 250 && mouseY < height / 2 - 180) {
+    fill(100);
+    stroke(80)
+    strokeWeight(1);
+
     for (var i = 1; i <= worldmapWord.length; i++) {
-        PixelLetter(int(width / 10) * 10 / 2 + 70 - (i * 60), int(height / 10) * 10 / 2 - 249, worldmapWord.charAt(worldmapWord.length - i))
+      PixelLetter(
+        int(width / 10) * 10 / 2 + 70 - (i * 60), int(height / 10) * 10 / 2 - 249, worldmapWord.charAt(worldmapWord.length - i))
     }
+
+  } else if (mouseX < width / 2 + 350 && mouseX > width / 2 - 10 && mouseY > height / 2 + 150 && mouseY < height / 2 + 220) {
+
+    fill(100);
+    stroke(80)
+    strokeWeight(1);
+
     for (var i = 1; i <= customWord.length; i++) {
-        PixelLetter(int(width / 10) * 10 / 2 + 350 - (i * 60), int(height / 10) * 10 / 2 + 149, customWord.charAt(customWord.length - i))
+      PixelLetter(
+        int(width / 10) * 10 / 2 + 350 - (i * 60),
+        int(height / 10) * 10 / 2 + 149,
+        customWord.charAt(customWord.length - i)
+      )
     }
-    for (var i = 1; i <= orWord.length; i++) {
-        PixelLetter(int(width / 10) * 10 / 2 + 70 - (i * 60), int(height / 10) * 10 / 2 - 49, orWord.charAt(orWord.length - i))
+
+  } else if (mouseX < int(width / 10) * 10 - 50 && mouseX > int(width / 10) * 10 - 80 && mouseY > int(height / 10) * 10 - 120 && mouseY < int(height / 10) * 10 - 0) {
+
+    fill(100);
+    stroke(80)
+    strokeWeight(1);
+
+    for (var i = 0; i < infoMark[0].length; i++) {
+      rect(
+        int(width / 10) * 10 - 80 + infoMark[0][i],
+        int(height / 10) * 10 - 120 + infoMark[1][i],
+        10,
+        10
+      );
     }
-    if (mouseX < width / 2 + 70 && mouseX > width / 2 - 410 && mouseY > height / 2 - 250 && mouseY < height / 2 - 180) {
-        fill(100);
-        stroke(80)
-        strokeWeight(1);
-        for (var i = 1; i <= worldmapWord.length; i++) {
-            PixelLetter(int(width / 10) * 10 / 2 + 70 - (i * 60), int(height / 10) * 10 / 2 - 249, worldmapWord.charAt(worldmapWord.length - i))
-        }
-    } else if (mouseX < width / 2 + 350 && mouseX > width / 2 - 10 && mouseY > height / 2 + 150 && mouseY < height / 2 + 220) {
-        fill(100);
-        stroke(80)
-        strokeWeight(1);
-        for (var i = 1; i <= customWord.length; i++) {
-            PixelLetter(int(width / 10) * 10 / 2 + 350 - (i * 60), int(height / 10) * 10 / 2 + 149, customWord.charAt(customWord.length - i))
-        }
-    } else if (mouseX < int(width / 10) * 10 - 50 && mouseX > int(width / 10) * 10 - 80 && mouseY > int(height / 10) * 10 - 120 && mouseY < int(height / 10) * 10 - 0) {
-        fill(100);
-        stroke(80)
-        strokeWeight(1);
-        for (var i = 0; i < infoMark[0].length; i++) {
-            rect(int(width / 10) * 10 - 80 + infoMark[0][i], int(height / 10) * 10 - 120 + infoMark[1][i], 10, 10);
-        }
-    }
+  }
 }
 
 function Choice() {
@@ -71,18 +114,18 @@ function Choice() {
         custom = false;
         chosen = true;
     } else if (positionX < width / 2 + 350 && positionX > width / 2 - 10 && positionY > height / 2 + 150 && positionY < height / 2 + 220) {
-        snowamount = 40 * weather_scale;
-        rainamount = 40 * weather_scale;
-        apiclouds = 6 * weather_scale;
+        snowamount   = 40 * weather_scale;
+        rainamount   = 40 * weather_scale;
+        apiclouds    = 6 * weather_scale;
         freezeamount = 20 * weather_scale;
-        timeofday = "sunrise";
-        time = random(5, 8)
-        custom = true;
-        chosen = true;
-        cloudsize = 5 * weather_scale;
-        wind = 10;
-        sunset = 18;
-        sunrise = 6;
+        timeofday    = "sunrise";
+        time         = random(5, 8)
+        custom       = true;
+        chosen       = true;
+        cloudsize    = 5 * weather_scale;
+        wind         = 10;
+        sunset       = 18;
+        sunrise      = 6;
     } else if (positionX < int(width / 10) * 10 - 50 && positionX > int(width / 10) * 10 - 80 && positionY > int(height / 10) * 10 - 120 && positionY < int(height / 10) * 10 - 0) {
         infoPage = true
         chosen = true
@@ -98,39 +141,65 @@ function Customize() {
     //CHANGE TO 7 FOR HAZE!
 
     for (var i = 1; i < 6; i++) {
-        rect(400, 70 + 100 * i, 30, 30);
+      rect(
+        400,
+        70 + 100 * i,
+        30,
+        30
+      );
     }
-    rect(int((swidth / 2) / 10) * 10 - 200, 640, 510, 90);
+    rect(
+      int((swidth / 2) / 10) * 10 - 200,
+      640,
+      510,
+      90
+    );
 
     fill(100)
+
     for (var i = 0; i < nextButton[0].length; i++) {
-        rect(400 + nextButton[0][i], 60 + nextButton[1][i], 10, 10);
+      rect(
+        400 + nextButton[0][i],
+        60 + nextButton[1][i],
+        10,
+        10
+      );
     }
+
     stroke(30);
+
     for (var i = 0; i < height; i = i + 10) {
         line(0, i, width, i);
     }
+
     for (var i = 0; i < width; i = i + 10) {
         line(i, 0, i, height);
     }
+
     fill(80);
     noStroke();
     stroke(0)
+
     for (var i = 0; i < listOfWords[timeOfDayScroll].length; i++) {
         PixelLetter(50 + (i * 60), 50, listOfWords[timeOfDayScroll].charAt(i))
     }
+
     for (var i = 0; i < listOfWords[4].length; i++) {
         PixelLetter(50 + (i * 60), 150, listOfWords[4].charAt(i))
     }
+
     for (var i = 0; i < listOfWords[5].length; i++) {
         PixelLetter(50 + (i * 60), 250, listOfWords[5].charAt(i))
     }
+
     for (var i = 0; i < listOfWords[6].length; i++) {
         PixelLetter(50 + (i * 60), 350, listOfWords[6].charAt(i))
     }
+
     for (var i = 0; i < listOfWords[7].length; i++) {
         PixelLetter(50 + (i * 60), 450, listOfWords[7].charAt(i))
     }
+
     for (var i = 0; i < listOfWords[8].length; i++) {
         PixelLetter(50 + (i * 60), 550, listOfWords[8].charAt(i))
     }
@@ -186,31 +255,31 @@ function Choosing() {
             if (timeOfDayScroll == 0) {
                 timeOfDayScroll++;
                 timeofday = "day";
-                time = random(8, 16);
+                time      = random(8, 16);
             } else if (timeOfDayScroll == 1) {
                 timeOfDayScroll++;
                 timeofday = "sunset";
-                time = random(16, 18);
+                time      = random(16, 18);
             } else if (timeOfDayScroll == 2) {
                 timeOfDayScroll++;
                 timeofday = "night";
-                time = random(18, 30);
+                time      = random(18, 30);
                 if (time > 24) {
                     time = time - 24;
                 }
             } else {
                 timeOfDayScroll = 0;
-                timeofday = "sunrise";
-                time = random(5, 8)
+                timeofday       = "sunrise";
+                time            = random(5, 8)
             }
         }
     }
 
     if (positionX > int((swidth / 2) / 10) * 10 - 200 && positionX < int((swidth / 2) / 10) * 10 + 310 && positionY > 640 && positionY < 730) {
-        custom = false;
+        custom       = false;
         weatherexist = true;
-        timeexist = true;
-        customed = true;
+        timeexist    = true;
+        customed     = true;
     }
 
     for (var i = 1; i < 7; i++) {

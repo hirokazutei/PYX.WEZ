@@ -8,12 +8,13 @@ function getAPI() {
 
 function AppendWeatherData(weatherdata) {
     if (weatherdata.weather[0].main) {
-        weather = weatherdata.weather[0].main;
+        weather         = weatherdata.weather[0].main;
         weatherSeverity = weatherdata.weather[0].description;
-        temperature = weatherdata.main.temp;
-        humidity = weatherdata.main.humidity;
-        wind = weatherdata.wind.speed;
-        apiclouds = weatherdata.clouds.all;
+        temperature     = weatherdata.main.temp;
+        humidity        = weatherdata.main.humidity;
+        wind            = weatherdata.wind.speed;
+        apiclouds       = weatherdata.clouds.all;
+
         if (weatherdata.name && bigcity === false) {
             name = '';
             if (weatherdata.name.length > 15) {
@@ -34,7 +35,8 @@ function AppendWeatherData(weatherdata) {
 function AppendTimeData(timedata) {
     if (timedata.time) {
         rawtime = timedata.time;
-        time = float(rawtime.charAt(11) + rawtime.charAt(12) + '.' + rawtime.charAt(14) + rawtime.charAt(15));
+        time    = float(rawtime.charAt(11) + rawtime.charAt(12) + '.' + rawtime.charAt(14) + rawtime.charAt(15));
+
         if (timedata.sunrise) {
             rawsunrise = timedata.sunrise;
             sunrise = float(rawsunrise.charAt(11) + rawsunrise.charAt(12) + '.' + rawsunrise.charAt(14) + rawsunrise.charAt(15));
