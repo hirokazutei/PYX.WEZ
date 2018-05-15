@@ -1,20 +1,23 @@
-information1 = "I made this program partly for my own enjoyment and partly to utilize the tools and knowledge I have acquired from learning JavaScript at home."
-information2 = "More information can be found on the GitHub Website."
-information3 = "If you wish to contact me about bugs and possible ideas for future projects and improvements, e-mail me here."
+var information1 = "I made this program partly for my own enjoyment and partly to utilize the tools and knowledge I have acquired from learning JavaScript at home."
+var information2 = "More information can be found on the GitHub Website."
+var information3 = "If you wish to contact me about bugs and possible ideas for future projects and improvements, e-mail me here."
 
-downInfo = [
+var downInfo = [
   [0, 1, 2, 3, 4],
   [0, 1, 2, 1, 0]
 ]
-GitHubClick = [
+
+var GitHubClick = [
   [],
   []
 ]
-EmailClick = [
+
+var EmailClick = [
   [],
   []
 ]
-infoSign = "PYX.WEZ INFO:"
+
+var infoSign = "PYX.WEZ INFO:"
 
 
 function Info() {
