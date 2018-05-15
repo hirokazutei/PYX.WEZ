@@ -1,4 +1,4 @@
-var timedisplay = "";
+var timedisplay     = "";
 var texttime;
 var temperaturetext = "";
 

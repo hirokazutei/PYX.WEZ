@@ -3,24 +3,41 @@ var worldy = [14, 14, 15, 14, 15, 16, 15, 13, 14, 15, 16, 17, 13, 14, 15, 16, 17
 //Multiply every nubmer by their scale!
 function World() {
   stroke(30);
+
   for (var i = 0; i < width; i = i + window_scale) {
     line(i, 0, i, height);
   }
+
   for (var i = 0; i < height; i = i + window_scale) {
     line(0, i, width, i);
   }
+
   fill(100);
   stroke(80);
   strokeWeight(1);
+
   for (var i = 0; i < worldx.length; i++) {
     rect(worldx[i] * window_scale, worldy[i] * window_scale, window_scale, window_scale);
   }
+
   noStroke()
   fill(60);
-  rect(round(mouseX / window_scale) * window_scale - (window_scale + 1), round(mouseY / window_scale) * window_scale - (window_scale + 1), int(window_scale * 1.4), int(window_scale * 1.4));
+
+  rect(
+    round(mouseX / window_scale) * window_scale - (window_scale + 1),
+    round(mouseY / window_scale) * window_scale - (window_scale + 1),
+    int(window_scale * 1.4),
+    int(window_scale * 1.4)
+  );
+
   for (var i = 0; i < citylist.length; i++) {
-    if (round(mouseX/window_scale) == citylist[i][1][0] && round(mouseY/window_scale) == citylist[i][1][1]) {
-      ellipse(round(mouseX / window_scale) * window_scale - int(window_scale * 0.5), round(mouseY / window_scale) * window_scale - int(window_scale * 0.5), (window_scale * 2), (window_scale * 2));
+    if (round(mouseX / window_scale) == citylist[i][1][0] && round(mouseY / window_scale) == citylist[i][1][1]) {
+      ellipse(
+        round(mouseX / window_scale) * window_scale - int(window_scale * 0.5),
+        round(mouseY / window_scale) * window_scale - int(window_scale * 0.5),
+        (window_scale * 2),
+        (window_scale * 2)
+      );
       noStroke();
       fill(50, 50, 50, 40);
       for (var e = 0; e < String(citylist[i][2]).length; e++) {
@@ -37,19 +54,19 @@ function WorldClicked() {
   for (var i = 0; i < citylist.length; i++) {
     //LOOKS FOR IF A PIXEL MATCHES THE PRE-WRITTEN CITY LIST
     if (round(positionX / window_scale) == citylist[i][1][0] && round(positionY / window_scale) == citylist[i][1][1]) {
-      lat = citylist[i][0][0];
-      lon = citylist[i][0][1];
-      name = citylist[i][2];
+      lat        = citylist[i][0][0];
+      lon        = citylist[i][0][1];
+      name       = citylist[i][2];
       apiweather = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=metric&APPID=56df7945c229d0eb444fe7c104e03da2";
-      apitime = "http://api.geonames.org/timezoneJSON?lat=" + lat + "&lng=" + lon + "&username=kazuyalegrey";
+      apitime    = "http://api.geonames.org/timezoneJSON?lat=" + lat + "&lng=" + lon + "&username=kazuyalegrey";
       cityselect = true;
-      bigcity = true;
+      bigcity    = true;
     }
   }
   //SELECTED A NON-PRELOADED CITY. DISPLAYS A RANDOM AREA IN THE PIXEL
   if (cityselect === false) {
-    lat = map((round(mouseY/window_scale) * window_scale - window_scale + random(2 * window_scale)), 80*window_scale, 0, -55, 90);
-    lon = map((round(mouseX/window_scale) * window_scale - window_scale + random(-window_scale, window_scale)), 0, 128 * window_scale, -180, 180);
+    lat = map((round(mouseY / window_scale) * window_scale - window_scale + random(2 * window_scale)), 80 * window_scale, 0, -55, 90);
+    lon = map((round(mouseX / window_scale) * window_scale - window_scale + random(-window_scale, window_scale)), 0, 128 * window_scale, -180, 180);
     print(String(round(mouseX / window_scale) * window_scale) + " " + String(round(mouseY / window_scale) * window_scale));
     print(lat);
     print(lon);
@@ -64,33 +81,33 @@ function BackClicked() {
   positionY = mouseY;
   for (var i = 0; i < pixelthings[0][0].length; i++) {
     if (positionX >= this.x + pixelthings[0][0][i] && positionX <= this.x + pixelthings[0][0][i] + 10 && positionY >= this.y + pixelthings[0][1][i] && positionY <= this.y + pixelthings[0][1][i] + 10) {
-      var weatherSeverity;
-      var apiweather;
-      var apitime;
-      var name = "unknown place"
-      cityselect = false;
-      weatherexist = false;
-      timeexist = false;
+      var               weatherSeverity;
+      var               apiweather;
+      var               apitime;
+      var               name = "unknown place"
+      cityselect        = false;
+      weatherexist      = false;
+      timeexist         = false;
       displayingweather = false;
-      bigcity = false;
-      custom = false;
-      customed = false;
-      chosen = false;
-      infoPage = false;
-      timeOfDayScroll = 0;
+      bigcity           = false;
+      custom            = false;
+      customed          = false;
+      chosen            = false;
+      infoPage          = false;
+      timeOfDayScroll   = 0;
     }
   }
 }
 
 function BackHover() {
   for (var i = 0; i < pixelthings[0][0].length; i++) {
-    if (mouseX >= this.x + pixelthings[0][0][i] && mouseX <= this.x + pixelthings[0][0][i] + 10 && mouseY >= this.y + pixelthings[0][1][i] && mouseY <= this.y + pixelthings[0][1][i]  + 10) {
+    if (mouseX >= this.x + pixelthings[0][0][i] && mouseX <= this.x + pixelthings[0][0][i] + 10 && mouseY >= this.y + pixelthings[0][1][i] && mouseY <= this.y + pixelthings[0][1][i] + 10) {
       PixelThing(width - 150, height - 140, 0, 200);
     }
   }
 }
 
 function BackButton() {
-  PixelThing(width - 150 , height - 140, 0, 50);
+  PixelThing(width - 150, height - 140, 0, 50);
   BackHover();
 }

@@ -85,14 +85,14 @@ var cloudamount;
 var cloudsize;
 
 function Cloud(x, y, v, a) {
-  this.x = x;
-  this.y = y;
-  this.v = v;
-  this.a = a
-  this.cloudx = [];
-  this.cloudy = [];
-  this.formation = [];
-  this.cloudsize = cloudsize + round(random(-10, 10));
+  this.x          = x;
+  this.y          = y;
+  this.v          = v;
+  this.a          = a
+  this.cloudx     = [];
+  this.cloudy     = [];
+  this.formation  = [];
+  this.cloudsize  = cloudsize + round(random(-10, 10));
   this.cloudcurve = 2;
 
   for (var i = 0; i < this.cloudsize; i++) {
@@ -137,27 +137,30 @@ function Floats() {
   if (wind) {
     for (var i = 0; i < cloud.length; i++) {
       if (cloud[i].x - cloudsize * 10 >= width) {
-        cloud[i] = new Cloud(0, int(random((cloudamount * 7 + 300) / 10)) * 10, wind + random(-wind + 2, 10), random(80, 90));
+        cloud[i] = new Cloud(
+          0,
+          int(random((cloudamount * 7 + 300) / 10)) * 10,
+          wind + random(-wind + 2, 10),
+          random(80, 90));
       }
     }
     if (cloud.length < cloudamount) {
       for (var i = 0; i < cloudamount; i++) {
-        cloud[i] = new Cloud(random(width), int(random((cloudamount * 7 + 300) / 10)) * 10, wind + random(-wind + 2, 10), random(80, 90));
+        cloud[i] = new Cloud(
+          random(width),
+          int(random((cloudamount * 7 + 300) / 10)) * 10,
+          wind + random(-wind + 2, 10),
+          random(80, 90));
       }
     }
   }
 }
-
-
 
 function Clouding() {
   for (var i = 0; i < cloud.length; i++) {
     cloud[i].Clouds();
   }
 }
-
-
-
 
 //STARS!
 
@@ -187,7 +190,11 @@ function Star(x, y, b, a) {
 
 function Blink() {
   while (stars.length < staramount) {
-    stars.push(new Star(int(random(0, width / 20)) * 20, int(random(0, height / 20)) * 20, random(50, 100), random(60, 150)))
+    stars.push(new Star(
+      int(random(0, width / 20)) * 20,
+      int(random(0, height / 20)) * 20,
+      random(50, 100),
+      random(60, 150)))
   }
 }
 
@@ -197,9 +204,6 @@ function Starring() {
     stars[i].Stars();
   }
 }
-
-
-
 
 //Lightning
 
@@ -251,9 +255,6 @@ function Lightning(a) {
   }
 }
 
-
-
-
 function Zapping() {
   for (var i = 0; i < lightning.length; i++) {
     lightning[i].Lightnings();
@@ -268,7 +269,6 @@ function Zaps() {
     lightning.push(new Lightning(light));
   }
 }
-
 
 
 //FREEZING RAIN
@@ -302,35 +302,40 @@ function Hailing() {
 function Freeze() {
   for (var i = 0; i < hail.length; i++) {
     if (hail[i].y >= height || hail[i].x >= width || hail.length > freezeamount) {
-      hail[i] = new Hail(random(-(wind) * 180, width), 0, wind, random(10, 20), random(30, 60));
+      hail[i] = new Hail(
+        random(-(wind) * 180, width),
+        0,
+        wind,
+        random(10, 20),
+        random(30, 60));
     }
   }
   if (hail.length < freezeamount) {
-    hail.push(new Hail(random(-(wind) * 180, width), 0, wind, random(10, 20), random(30, 60)))
+    hail.push(new Hail(
+      random(-(wind) * 180, width),
+      0,
+      wind,
+      random(10, 20),
+      random(30, 60)))
   }
 }
 
-
-
-
-
-
 //HAZE
 
-var haze = [];
-var hazesize = 1000;
-var hazeColor = [100, 100, 100, 20];
+var haze       = [];
+var hazesize   = 1000;
+var hazeColor  = [100, 100, 100, 20];
 var hazeamount = 5;
 
 function Haze(x, y, v, a) {
-  this.x = x;
-  this.y = y;
-  this.v = v;
-  this.a = a
-  this.hazex = [];
-  this.hazey = [];
+  this.x         = x;
+  this.y         = y;
+  this.v         = v;
+  this.a         = a
+  this.hazex     = [];
+  this.hazey     = [];
   this.formation = [];
-  this.hazesize = hazesize + round(random(-10, 10));
+  this.hazesize  = hazesize + round(random(-10, 10));
   this.hazecurve = 30;
 
   for (var i = 0; i < this.hazesize; i++) {
@@ -374,12 +379,21 @@ function Drifts() {
   if (wind) {
     for (var i = 0; i < haze.length; i++) {
       if (haze[i].x - hazesize * 10 >= width) {
-        h[i] = new Haze(0, int(random((hazeamount * 7 + 300) / 10)) * 10, wind + random(-wind + 2, 10), random(80, 90));
+        h[i] = new Haze(
+          0,
+          int(random((hazeamount * 7 + 300) / 10)) * 10,
+          wind + random(-wind + 2, 10),
+          random(80, 90));
+
       }
     }
     if (haze.length < hazeamount) {
       for (var i = 0; i < hazeamount; i++) {
-        haze[i] = new Haze(random(width), height, wind + random(-wind + 2, 10), random(80, 90));
+        haze[i] = new Haze(
+          random(width),
+          height,
+          wind + random(-wind + 2, 10),
+          random(80, 90));
       }
     }
   }

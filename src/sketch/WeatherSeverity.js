@@ -197,7 +197,7 @@ function CheckWeather() {
         break;
       case "sand, dust whirls" || "sand":
         hazing = true
-          //COLOR for sandy haze
+        //COLOR for sandy haze
         break;
       case "volcanic ash":
         break;
